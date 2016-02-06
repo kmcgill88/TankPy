@@ -15,6 +15,7 @@
 		E7632CE11C5E5CF00093416B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7632CDF1C5E5CF00093416B /* LaunchScreen.storyboard */; };
 		E7632CEC1C5E5CF00093416B /* TankPiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7632CEB1C5E5CF00093416B /* TankPiTests.swift */; };
 		E7632CF71C5E5CF00093416B /* TankPiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7632CF61C5E5CF00093416B /* TankPiUITests.swift */; };
+		E7632D0D1C6306AD0093416B /* HTTPster.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7632D0C1C6306AD0093416B /* HTTPster.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		E7632CF21C5E5CF00093416B /* TankPiUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TankPiUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7632CF61C5E5CF00093416B /* TankPiUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TankPiUITests.swift; sourceTree = "<group>"; };
 		E7632CF81C5E5CF00093416B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E7632D0C1C6306AD0093416B /* HTTPster.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPster.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 		E7632CD31C5E5CF00093416B /* TankPi */ = {
 			isa = PBXGroup;
 			children = (
+				E7632D0C1C6306AD0093416B /* HTTPster.swift */,
 				E7632CD41C5E5CF00093416B /* AppDelegate.swift */,
 				E7632CD61C5E5CF00093416B /* FirstViewController.swift */,
 				E7632CD81C5E5CF00093416B /* SecondViewController.swift */,
@@ -196,6 +199,7 @@
 				TargetAttributes = {
 					E7632CD01C5E5CF00093416B = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = 8LM3BV3T68;
 					};
 					E7632CE61C5E5CF00093416B = {
 						CreatedOnToolsVersion = 7.2;
@@ -262,6 +266,7 @@
 				E7632CD91C5E5CF00093416B /* SecondViewController.swift in Sources */,
 				E7632CD51C5E5CF00093416B /* AppDelegate.swift in Sources */,
 				E7632CD71C5E5CF00093416B /* FirstViewController.swift in Sources */,
+				E7632D0D1C6306AD0093416B /* HTTPster.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -352,7 +357,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -391,7 +396,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -403,10 +408,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = TankPi/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mcgilldevtech.TankPi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -414,10 +423,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = TankPi/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mcgilldevtech.TankPi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
@@ -488,6 +501,7 @@
 				E7632CFD1C5E5CF00093416B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E7632CFE1C5E5CF00093416B /* Build configuration list for PBXNativeTarget "TankPiTests" */ = {
 			isa = XCConfigurationList;
@@ -496,6 +510,7 @@
 				E7632D001C5E5CF00093416B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E7632D011C5E5CF00093416B /* Build configuration list for PBXNativeTarget "TankPiUITests" */ = {
 			isa = XCConfigurationList;
@@ -504,6 +519,7 @@
 				E7632D031C5E5CF00093416B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
