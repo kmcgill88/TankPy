@@ -8,18 +8,30 @@
 
 import UIKit
 
-class FirstViewController: UIViewController {
+class FirstViewController: UIViewController, HTTPsterDelegate {
+    
+    
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var label: UILabel!
+    @IBOutlet weak var refresh: UIButton!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        //Make delegate
+        HTTPster.shared.delegate = self
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    
+    @IBAction func refresh(sender: UIButton) {
+    
+    
     }
-
+    
+    func didRetrieveResponse(tag: Any, response: NSURLResponse?, responsedata: NSData?, error: NSError?) {
+        
+    }
 
 }
 
