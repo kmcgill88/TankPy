@@ -16,6 +16,7 @@
 		E7632CEC1C5E5CF00093416B /* TankPiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7632CEB1C5E5CF00093416B /* TankPiTests.swift */; };
 		E7632CF71C5E5CF00093416B /* TankPiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7632CF61C5E5CF00093416B /* TankPiUITests.swift */; };
 		E7632D0D1C6306AD0093416B /* HTTPster.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7632D0C1C6306AD0093416B /* HTTPster.swift */; };
+		E78847691C68346800078177 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78847681C68346800078177 /* BaseViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		E7632CF61C5E5CF00093416B /* TankPiUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TankPiUITests.swift; sourceTree = "<group>"; };
 		E7632CF81C5E5CF00093416B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E7632D0C1C6306AD0093416B /* HTTPster.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPster.swift; sourceTree = "<group>"; };
+		E78847681C68346800078177 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 				E7632CDD1C5E5CF00093416B /* Assets.xcassets */,
 				E7632CDF1C5E5CF00093416B /* LaunchScreen.storyboard */,
 				E7632CE21C5E5CF00093416B /* Info.plist */,
+				E78847681C68346800078177 /* BaseViewController.swift */,
 			);
 			path = TankPi;
 			sourceTree = "<group>";
@@ -263,6 +266,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E78847691C68346800078177 /* BaseViewController.swift in Sources */,
 				E7632CD91C5E5CF00093416B /* SecondViewController.swift in Sources */,
 				E7632CD51C5E5CF00093416B /* AppDelegate.swift in Sources */,
 				E7632CD71C5E5CF00093416B /* FirstViewController.swift in Sources */,

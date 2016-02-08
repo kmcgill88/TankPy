@@ -41,13 +41,16 @@ public class HTTPster : NSObject {
     let HTTP_TIMEOUT = 15.0
 
     
-    public func makeRequest(tag:Any, httpType:HTTPMethod, contentType:HTTPContentType, url:NSURL, headers:[String:String]?, postBody: String?) {
+    public func makeRequest(tag:Any, httpType:HTTPMethod, contentType:HTTPContentType?, url:NSURL, headers:[String:String]?, postBody: String?) {
         
         let request:NSMutableURLRequest = NSMutableURLRequest()
         request.URL = url
         request.HTTPMethod = httpType.rawValue
-        request.setValue(contentType.rawValue, forHTTPHeaderField: "Content-Type")
         request.timeoutInterval = HTTP_TIMEOUT
+        
+        if let type = contentType {
+            request.setValue(type.rawValue, forHTTPHeaderField: "Content-Type")
+        }
         
         
         if HTTPMethod.POST == httpType {
@@ -56,7 +59,6 @@ public class HTTPster : NSObject {
                 let bodyData = goodBody.dataUsingEncoding(NSASCIIStringEncoding, allowLossyConversion: true)!
                 request.HTTPBody = bodyData
                 request.setValue("\(bodyData.length)", forHTTPHeaderField: "Content-Length")
-                
             }
         }
 

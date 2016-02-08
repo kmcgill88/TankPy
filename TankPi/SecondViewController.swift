@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SecondViewController: UIViewController, HTTPsterDelegate {
+class SecondViewController: BaseViewController, HTTPsterDelegate {
 
     
     let url = NSURL(string: "https://tankpi.mcgilln.com/tankpi.php")
@@ -71,11 +71,6 @@ class SecondViewController: UIViewController, HTTPsterDelegate {
         
     }
     
-    
-    
-
-    
-    
     func didRetrieveResponse(tag: Any, response: NSURLResponse?, responsedata: NSData?, error: NSError?) {
 
         var message = ""
@@ -86,7 +81,6 @@ class SecondViewController: UIViewController, HTTPsterDelegate {
         }
         
         if let goodData = responsedata {
-
             let tempResponse = NSString(data: goodData, encoding: NSUTF8StringEncoding)
             if let goodResponse = tempResponse {
                 message += " \nLight Status: \(goodResponse)"
@@ -97,20 +91,6 @@ class SecondViewController: UIViewController, HTTPsterDelegate {
         showAlertWithMessage("Alert", message: message, action: UIAlertAction(title: "Dismiss", style: .Default, handler: nil))
 
     }
-    
-    
-    
-    func showAlertWithMessage(title:String!, message:String!, action:UIAlertAction? ) {
-        
-        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
-        
-        if action != nil {
-            alert.addAction(action!)
-        }
-        
-        self.presentViewController(alert, animated: true, completion: nil)
-    }
-    
 
 }
 

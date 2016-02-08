@@ -8,8 +8,12 @@
 
 import UIKit
 
-class FirstViewController: UIViewController, HTTPsterDelegate {
+class FirstViewController: BaseViewController, HTTPsterDelegate {
     
+    
+    let imageUrl = NSURL(string: "https://tankpi.mcgilln.com/tank.jpg")
+    let tempUrl = NSURL(string: "https://tankpi.mcgilln.com/temp.php")
+
     
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var label: UILabel!
@@ -20,16 +24,42 @@ class FirstViewController: UIViewController, HTTPsterDelegate {
         super.viewDidLoad()
         //Make delegate
         HTTPster.shared.delegate = self
+        
+        doRefresh()
     }
 
     
     
     @IBAction func refresh(sender: UIButton) {
+        doRefresh()
+    }
     
-    
+    func doRefresh() {
+        //Get things
+        HTTPster.shared.makeRequest(imageView, httpType: HTTPster.HTTPMethod.GET, contentType: nil, url: imageUrl!, headers: nil, postBody: nil)
+        HTTPster.shared.makeRequest("temp", httpType: HTTPster.HTTPMethod.GET, contentType: nil, url: tempUrl!, headers: nil, postBody: nil)
     }
     
     func didRetrieveResponse(tag: Any, response: NSURLResponse?, responsedata: NSData?, error: NSError?) {
+        
+        if let image = tag as? UIImageView {
+            if image == imageView {
+                if let goodData = responsedata {
+                    imageView.image = UIImage(data: goodData)
+                }
+            }
+        }
+        
+        if let _ = tag as? String {
+            //Its the temp.
+            if let goodData = responsedata {
+                let tempResponse = NSString(data: goodData, encoding: NSUTF8StringEncoding)
+                if let goodResponse = tempResponse as? String {
+                   label.text = "\(goodResponse) F"
+                }
+                
+            }
+        }
         
     }
 
