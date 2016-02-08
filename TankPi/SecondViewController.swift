@@ -73,23 +73,26 @@ class SecondViewController: BaseViewController, HTTPsterDelegate {
     
     func didRetrieveResponse(tag: Any, response: NSURLResponse?, responsedata: NSData?, error: NSError?) {
 
-        var message = ""
-        
-        if let httpResponse = response as? NSHTTPURLResponse {
-            print("Status code: (\(httpResponse.statusCode))")
-            message += "Status code: \(httpResponse.statusCode)"
-        }
-        
-        if let goodData = responsedata {
-            let tempResponse = NSString(data: goodData, encoding: NSUTF8StringEncoding)
-            if let goodResponse = tempResponse {
-                message += " \nLight Status: \(goodResponse)"
+        if let goodTag = tag as? String {
+            if goodTag == "OffLight" || goodTag == "OnLight" {
+                var message = ""
+                
+                if let httpResponse = response as? NSHTTPURLResponse {
+                    print("Status code: (\(httpResponse.statusCode))")
+                    message += "Status code: \(httpResponse.statusCode)"
+                }
+                
+                if let goodData = responsedata {
+                    let tempResponse = NSString(data: goodData, encoding: NSUTF8StringEncoding)
+                    if let goodResponse = tempResponse {
+                        message += " \nLight Status: \(goodResponse)"
+                    }
+                    
+                }
+                
+                showAlertWithMessage("Alert", message: message, action: UIAlertAction(title: "Dismiss", style: .Default, handler: nil))
             }
-
         }
-        
-        showAlertWithMessage("Alert", message: message, action: UIAlertAction(title: "Dismiss", style: .Default, handler: nil))
-
     }
 
 }

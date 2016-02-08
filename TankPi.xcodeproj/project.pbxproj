@@ -107,11 +107,11 @@
 				E7632CD41C5E5CF00093416B /* AppDelegate.swift */,
 				E7632CD61C5E5CF00093416B /* FirstViewController.swift */,
 				E7632CD81C5E5CF00093416B /* SecondViewController.swift */,
+				E78847681C68346800078177 /* BaseViewController.swift */,
 				E7632CDA1C5E5CF00093416B /* Main.storyboard */,
 				E7632CDD1C5E5CF00093416B /* Assets.xcassets */,
 				E7632CDF1C5E5CF00093416B /* LaunchScreen.storyboard */,
 				E7632CE21C5E5CF00093416B /* Info.plist */,
-				E78847681C68346800078177 /* BaseViewController.swift */,
 			);
 			path = TankPi;
 			sourceTree = "<group>";

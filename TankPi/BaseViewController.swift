@@ -11,7 +11,6 @@ import UIKit
 
 class BaseViewController : UIViewController {
 
-    
     func showAlertWithMessage(title:String!, message:String!, action:UIAlertAction? ) {
         
         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
@@ -22,7 +21,5 @@ class BaseViewController : UIViewController {
         
         self.presentViewController(alert, animated: true, completion: nil)
     }
-    
-    
     
 }

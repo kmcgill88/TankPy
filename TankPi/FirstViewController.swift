@@ -45,23 +45,26 @@ class FirstViewController: BaseViewController, HTTPsterDelegate {
         if let image = tag as? UIImageView {
             if image == imageView {
                 if let goodData = responsedata {
+                    print("good image")
                     imageView.image = UIImage(data: goodData)
                 }
             }
         }
         
-        if let _ = tag as? String {
-            //Its the temp.
-            if let goodData = responsedata {
-                let tempResponse = NSString(data: goodData, encoding: NSUTF8StringEncoding)
-                if let goodResponse = tempResponse as? String {
-                   label.text = "\(goodResponse) F"
+        if let goodString = tag as? String {
+            if goodString == "temp" {
+                //Its the temp.
+                if let goodData = responsedata {
+                    let tempResponse = NSString(data: goodData, encoding: NSUTF8StringEncoding)
+                    if let goodResponse = tempResponse as? String {
+                        let tempIs = goodResponse.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet()) + " F"
+                        print(tempIs)
+                        label.text = tempIs
+                    }
+                    
                 }
-                
             }
         }
-        
     }
-
 }
 
