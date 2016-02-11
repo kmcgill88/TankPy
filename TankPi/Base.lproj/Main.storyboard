@@ -17,13 +17,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="u2T-Cg-6bz">
-                                <rect key="frame" x="12" y="20" width="582" height="474"/>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dZs-89-fFh">
-                                <rect key="frame" x="472" y="513" width="108" height="30"/>
+                                <rect key="frame" x="20" y="513" width="560" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="108" id="jYo-uU-RuV"/>
+                                    <constraint firstAttribute="height" constant="30" id="WN8-ey-wUm"/>
                                 </constraints>
                                 <state key="normal" title="Refresh">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -32,40 +29,26 @@
                                     <action selector="refresh:" destination="9pv-A4-QxB" eventType="touchUpInside" id="GC6-as-cr6"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fUf-2X-ljk">
-                                <rect key="frame" x="20" y="502" width="421" height="41"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="41" id="BcI-LY-mgf"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gnn-NL-IUs">
+                                <rect key="frame" x="5" y="2" width="589" height="500"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
+                            </webView>
                         </subviews>
                         <color key="backgroundColor" red="0.92941176470588238" green="0.94901960784313721" blue="0.9137254901960784" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="dZs-89-fFh" secondAttribute="trailing" id="1VK-LJ-MTI"/>
-                            <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="u2T-Cg-6bz" secondAttribute="bottom" constant="57" id="3cQ-Zn-n92"/>
-                            <constraint firstItem="u2T-Cg-6bz" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" id="BWK-wi-NE6"/>
-                            <constraint firstItem="dZs-89-fFh" firstAttribute="leading" secondItem="fUf-2X-ljk" secondAttribute="trailing" constant="31" id="Zz4-9J-A9o"/>
-                            <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="fUf-2X-ljk" secondAttribute="bottom" constant="8" id="eMg-ez-ISS"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="u2T-Cg-6bz" secondAttribute="trailing" constant="-14" id="iLh-D8-Wox"/>
-                            <constraint firstItem="fUf-2X-ljk" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" id="olQ-1I-xF3"/>
-                            <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="dZs-89-fFh" secondAttribute="bottom" constant="8" id="rRc-xW-6Dh"/>
-                            <constraint firstItem="u2T-Cg-6bz" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" constant="-8" id="v7S-CT-BDe"/>
-                            <constraint firstItem="dZs-89-fFh" firstAttribute="leading" secondItem="fUf-2X-ljk" secondAttribute="trailing" constant="53" id="wfv-HV-Kwa"/>
+                            <constraint firstItem="dZs-89-fFh" firstAttribute="top" secondItem="gnn-NL-IUs" secondAttribute="bottom" constant="11" id="1no-EZ-XuW"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="dZs-89-fFh" secondAttribute="trailing" id="A55-kf-VnN"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="gnn-NL-IUs" secondAttribute="trailing" constant="-14" id="JAN-WY-4p8"/>
+                            <constraint firstItem="gnn-NL-IUs" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" constant="-18" id="qx3-Rk-x9I"/>
+                            <constraint firstItem="dZs-89-fFh" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" id="rWc-MF-xPh"/>
+                            <constraint firstItem="gnn-NL-IUs" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" constant="-15" id="trj-qA-6bb"/>
+                            <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="dZs-89-fFh" secondAttribute="bottom" constant="8" id="uNo-ZB-BPL"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="wfv-HV-Kwa"/>
-                            </mask>
-                        </variation>
                     </view>
                     <tabBarItem key="tabBarItem" title="View" image="first" id="acW-dT-cKf"/>
                     <connections>
-                        <outlet property="imageView" destination="u2T-Cg-6bz" id="d5v-W6-GVe"/>
-                        <outlet property="label" destination="fUf-2X-ljk" id="Mu7-mv-jJe"/>
                         <outlet property="refresh" destination="dZs-89-fFh" id="XA6-pr-Nc7"/>
+                        <outlet property="webview" destination="gnn-NL-IUs" id="dtL-SU-zyA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
@@ -86,7 +69,7 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HYa-bA-Ul1">
                                 <rect key="frame" x="203" y="50" width="67" height="30"/>
-                                <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="White ON"/>
                                 <connections>
                                     <action selector="on:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="5CE-PS-XKF"/>
@@ -94,7 +77,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="twK-gD-q0U">
                                 <rect key="frame" x="330" y="50" width="72" height="30"/>
-                                <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="White OFF"/>
                                 <connections>
                                     <action selector="off:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="D74-NN-xbI"/>
@@ -103,7 +86,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ift-h3-dmp">
                                 <rect key="frame" x="290" y="290" width="20" height="20"/>
                                 <color key="backgroundColor" red="0.92941176469999998" green="0.94901960780000005" blue="0.91372549020000005" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="B8o-kX-bSQ"/>
                                     <constraint firstAttribute="width" constant="20" id="x4x-tM-5cw"/>
@@ -111,7 +94,7 @@
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5ca-u2-lGx">
                                 <rect key="frame" x="213" y="130" width="57" height="30"/>
-                                <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Blue ON"/>
                                 <connections>
                                     <action selector="on:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="hFe-fG-ZWw"/>
@@ -119,7 +102,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CJw-VN-vFA">
                                 <rect key="frame" x="342" y="130" width="63" height="30"/>
-                                <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Blue OFF"/>
                                 <connections>
                                     <action selector="off:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="3iM-yI-P65"/>
@@ -127,7 +110,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R9d-Ae-gZC">
                                 <rect key="frame" x="335" y="210" width="71" height="30"/>
-                                <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Moon OFF"/>
                                 <connections>
                                     <action selector="off:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="bbJ-zF-CBH"/>
@@ -135,7 +118,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TGn-cL-ae9">
                                 <rect key="frame" x="205" y="210" width="65" height="30"/>
-                                <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Moon ON"/>
                                 <connections>
                                     <action selector="on:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="mLM-jc-sk6"/>
