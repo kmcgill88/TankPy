@@ -33,7 +33,7 @@ class Lights(object):
             light_timer.LightTimer.set_light_status(light_timer.light_dict[num], on_off)
             GPIO.output(num, low_or_high)
             print on_off
-            if status == "OFF":
+            if on_off == "OFF":
                 GPIO.cleanup()
         except Exception as e:
             print "Error: %s" % e
