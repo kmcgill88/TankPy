@@ -45,6 +45,10 @@ class LightTimer(object):
             text_file.write(JSON.dumps(d))
 
     @staticmethod
+    def set_light_status_by_num(num, status):
+        LightTimer.set_light_status(light_dict[num], status)
+
+    @staticmethod
     def get_light_status(color):
         if not os.path.exists(status_dir):
             with open(status_dir, 'w') as text_file:

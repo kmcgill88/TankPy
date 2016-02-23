@@ -1,7 +1,7 @@
 #!/usr/bin/python
 import RPi.GPIO as GPIO
 import sys
-import light_timer
+from light_timer import LightTimer
 
 #Pins options:
 #26,19,16,20
@@ -9,7 +9,7 @@ import light_timer
 #sudo python lights.py 26 ON
 #sudo python lights.py 26 OFF
 
-pinNumber = int(sys.argv[1])
+pinNumber = sys.argv[1]
 status = sys.argv[2]
 
 
@@ -30,7 +30,7 @@ class Lights(object):
             low_or_high = GPIO.HIGH
 
         try:
-            light_timer.LightTimer.set_light_status(light_timer.light_dict[num], on_off)
+            LightTimer.set_light_status_by_num(num, on_off)
             GPIO.output(num, low_or_high)
             print on_off
             if on_off == "OFF":
