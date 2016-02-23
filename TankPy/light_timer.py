@@ -8,11 +8,11 @@ import lights
 
 light_dict = {'white':'26','blue':'19','moon':'20','26':'white','19':'blue','20':'moon'}
 
-dir = "%s/time.txt" % os.getcwd()
-status_dir = "%s/status.txt" % os.getcwd()
+#dir = "%s/time.txt" % os.getcwd()
+#status_dir = "%s/status.txt" % os.getcwd()
 
-#dir = "/home/pi/fishtank/time.txt"
-#status_dir = "/home/pi/fishtank/status.txt"
+dir = "/home/pi/fishtank/time.txt"
+status_dir = "/home/pi/fishtank/status.txt"
 
 def get_time(time):
    utc_time = datetime.strptime(time[:-6], '%Y-%m-%dT%H:%M:%S')
@@ -93,8 +93,7 @@ if (now > sunset) and (get_light_status('blue') == 'OFF'):
 if (now > get_time(data['results']['nautical_twilight_end'])) and (get_light_status('moon') == 'OFF'):
     #moons on
     lights.set_light(light_dict['moon'],'ON')
-
-if (now > (get_time(data['results']['nautical_twilight_end']) + timedelta(time=5))) and (get_light_status('moon') == 'ON'):
+elif (now > (get_time(data['results']['nautical_twilight_end']) + timedelta(hours=5))) and (get_light_status('moon') == 'ON'):
     #moons off
     lights.set_light(light_dict['moon'],'OFF')
 

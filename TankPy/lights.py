@@ -11,12 +11,13 @@ import light_timer
 
 pinNumber = int(sys.argv[1])
 status = sys.argv[2]
-
+print pinNumber
+print status
 
 def set_light(num, status):
   GPIO.setwarnings(False)
   GPIO.setmode(GPIO.BCM)
-  GPIO.setup(num, GPIO.OUT)
+  GPIO.setup(int(num), GPIO.OUT)
 
   if status == "ON":
     lowOrHigh = GPIO.LOW
@@ -24,13 +25,13 @@ def set_light(num, status):
     lowOrHigh = GPIO.HIGH
 
   try:
-    light_timer.set_light_status(light_timer.light_dict[pinNumber],status)
+    light_timer.set_light_status(light_timer.light_dict[num], status)
     GPIO.output(num, lowOrHigh)
     print status
     if status == "OFF":
       GPIO.cleanup()
-  except:
-    print "Error"
+  except Exception as e:
+    print "Error: %s" % e
 
 
 set_light(pinNumber, status)
