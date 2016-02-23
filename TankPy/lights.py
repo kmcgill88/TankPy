@@ -11,27 +11,32 @@ import light_timer
 
 pinNumber = int(sys.argv[1])
 status = sys.argv[2]
-print pinNumber
-print status
-
-def set_light(num, status):
-  GPIO.setwarnings(False)
-  GPIO.setmode(GPIO.BCM)
-  GPIO.setup(int(num), GPIO.OUT)
-
-  if status == "ON":
-    lowOrHigh = GPIO.LOW
-  else:
-    lowOrHigh = GPIO.HIGH
-
-  try:
-    light_timer.set_light_status(light_timer.light_dict[num], status)
-    GPIO.output(num, lowOrHigh)
-    print status
-    if status == "OFF":
-      GPIO.cleanup()
-  except Exception as e:
-    print "Error: %s" % e
 
 
-set_light(pinNumber, status)
+class Lights(object):
+
+    def __init__(self):
+        pass
+
+    @staticmethod
+    def set_light(num, on_off):
+        GPIO.setwarnings(False)
+        GPIO.setmode(GPIO.BCM)
+        GPIO.setup(int(num), GPIO.OUT)
+
+        if on_off == "ON":
+            low_or_high = GPIO.LOW
+        else:
+            low_or_high = GPIO.HIGH
+
+        try:
+            light_timer.LightTimer.set_light_status(light_timer.light_dict[num], on_off)
+            GPIO.output(num, low_or_high)
+            print on_off
+            if status == "OFF":
+                GPIO.cleanup()
+        except Exception as e:
+            print "Error: %s" % e
+
+
+Lights.set_light(pinNumber, status)
