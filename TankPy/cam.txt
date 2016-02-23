@@ -1,0 +1,1 @@
+*/1 * * * * sudo fswebcam --device /dev/video0 --frames 5 --jpeg -1 --save /var/www/html/me.jpg
