@@ -1,6 +1,7 @@
 #!/usr/bin/python
 import RPi.GPIO as GPIO
 import sys
+import light_timer
 
 #Pins options:
 #26,19,16,20
@@ -11,26 +12,25 @@ import sys
 pinNumber = int(sys.argv[1])
 status = sys.argv[2]
 
-GPIO.setwarnings(False)
-GPIO.setmode(GPIO.BCM)
-GPIO.setup(pinNumber, GPIO.OUT)
 
-if status == "ON":
-  lowOrHigh = GPIO.LOW
-else:
-  lowOrHigh = GPIO.HIGH
+def set_light(num, status):
+  GPIO.setwarnings(False)
+  GPIO.setmode(GPIO.BCM)
+  GPIO.setup(num, GPIO.OUT)
 
-try:
-  GPIO.output(pinNumber, lowOrHigh)
-  print status 
-  if status == "OFF":
-    GPIO.cleanup()
+  if status == "ON":
+    lowOrHigh = GPIO.LOW
+  else:
+    lowOrHigh = GPIO.HIGH
+
+  try:
+    light_timer.set_light_status(light_timer.light_dict[pinNumber],status)
+    GPIO.output(num, lowOrHigh)
+    print status
+    if status == "OFF":
+      GPIO.cleanup()
+  except:
+    print "Error"
 
 
-
-# End program cleanly with keyboard
-except KeyboardInterrupt:
-  print "  Quit"
-
-  # Reset GPIO settings
-  GPIO.cleanup()
+set_light(pinNumber, status)
