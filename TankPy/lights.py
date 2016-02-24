@@ -31,7 +31,7 @@ class Lights(object):
 
         try:
             LightTimer.set_light_status_by_num(num, on_off)
-            GPIO.output(num, low_or_high)
+            GPIO.output(int(num), low_or_high)
             print on_off
             if on_off == "OFF":
                 GPIO.cleanup()
