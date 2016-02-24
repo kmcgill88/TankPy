@@ -47,19 +47,13 @@ class Lights(object):
             low_or_high = GPIO.HIGH
 
         try:
-            LightTimer.set_light_status_by_num(num, on_off)
+            Lights.set_light_status_by_num(num, on_off)
             GPIO.output(int(num), low_or_high)
             print on_off
             if on_off == "OFF":
                 GPIO.cleanup()
         except Exception as e:
             print "Error: %s" % e
-
-
-class LightTimer(object):
-
-    def __init__(self):
-        pass
 
     @staticmethod
     def get_time(time):
@@ -87,7 +81,7 @@ class LightTimer(object):
 
     @staticmethod
     def set_light_status_by_num(num, status):
-        LightTimer.set_light_status(light_dict[num], status)
+        Lights.set_light_status(light_dict[num], status)
 
     @staticmethod
     def get_light_status(color):
@@ -109,58 +103,58 @@ else:
     with open(time_dir) as data_file:
         data = JSON.load(data_file)
 
-    sunrise = LightTimer.get_time(data['results']['sunrise'])
-    sunset = LightTimer.get_time(data['results']['sunset'])
+    sunrise = Lights.get_time(data['results']['sunrise'])
+    sunset = Lights.get_time(data['results']['sunset'])
     now = datetime.now(tz=tz.gettz('America/Chicago'))
 
-    if (now > LightTimer.get_time(data['results']['astronomical_twilight_begin'])) \
-            and (LightTimer.get_light_status('moon') == 'OFF'):
+    if (now > Lights.get_time(data['results']['astronomical_twilight_begin'])) \
+            and (Lights.get_light_status('moon') == 'OFF'):
         # moon on
         print "astronomical_twilight_begin: Moon ON"
         Lights.set_light(light_dict['moon'], 'ON')
 
-    if (now > LightTimer.get_time(data['results']['nautical_twilight_begin'])) \
-            and (LightTimer.get_light_status('blue') == 'OFF'):
+    if (now > Lights.get_time(data['results']['nautical_twilight_begin'])) \
+            and (Lights.get_light_status('blue') == 'OFF'):
         # blues on
         print "nautical_twilight_begin: Blues ON"
         Lights.set_light(light_dict['blue'], 'ON')
 
     # Skipping civil_twilight_begin
 
-    if (now > sunrise) and (now < sunset) and (LightTimer.get_light_status('white') == 'OFF'):
+    if (now > sunrise) and (now < sunset) and (Lights.get_light_status('white') == 'OFF'):
         # white on
         print "Sunrise: Whites ON"
         Lights.set_light(light_dict['white'], 'ON')
 
     if (now > sunrise) and (now < sunset) \
-            and ((LightTimer.get_light_status('blue') == 'ON') or (LightTimer.get_light_status('moon') == 'ON')):
+            and ((Lights.get_light_status('blue') == 'ON') or (Lights.get_light_status('moon') == 'ON')):
         # blues and moon off
         print "Sunrise: Blues and Moon OFF"
         Lights.set_light(light_dict['blue'], 'OFF')
         Lights.set_light(light_dict['moon'], 'OFF')
 
-    # -----
+    # ----- Midday -----
 
-    if (now > sunset) and (LightTimer.get_light_status('blue') == 'OFF'):
+    if (now > sunset) and (Lights.get_light_status('blue') == 'OFF'):
         # blues on
         print "Sunset: Blues ON"
         Lights.set_light(light_dict['blue'], 'ON')
 
     # skipping civil_twilight_end
 
-    if (now > LightTimer.get_time(data['results']['nautical_twilight_end'])) \
-            and (LightTimer.get_light_status('moon') == 'OFF'):
+    if (now > Lights.get_time(data['results']['nautical_twilight_end'])) \
+            and (Lights.get_light_status('moon') == 'OFF'):
         # moons on
         print "nautical_twilight_end: Moon ON"
         Lights.set_light(light_dict['moon'], 'ON')
-    elif (now > (LightTimer.get_time(data['results']['nautical_twilight_end']) + timedelta(hours=5))) \
-            and (LightTimer.get_light_status('moon') == 'ON'):
+    elif (now > (Lights.get_time(data['results']['nautical_twilight_end']) + timedelta(hours=5))) \
+            and (Lights.get_light_status('moon') == 'ON'):
         # moons off
         print "nautical_twilight_end: +5 hrs, Moon OFF"
         Lights.set_light(light_dict['moon'], 'OFF')
 
-    if (now > LightTimer.get_time(data['results']['astronomical_twilight_end'])) \
-            and (LightTimer.get_light_status('white') == 'ON'):
+    if (now > Lights.get_time(data['results']['astronomical_twilight_end'])) \
+            and (Lights.get_light_status('white') == 'ON'):
         # white off
         print "astronomical_twilight_end: Whites OFF"
         Lights.set_light(light_dict['white'], 'OFF')
