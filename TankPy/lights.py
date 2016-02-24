@@ -3,11 +3,11 @@ import RPi.GPIO as GPIO
 import sys
 from light_timer import LightTimer
 
-#Pins options:
-#26,19,16,20
+# Pins options:
+# 26,19,16,20
 
-#sudo python lights.py 26 ON
-#sudo python lights.py 26 OFF
+# sudo python lights.py 26 ON
+# sudo python lights.py 26 OFF
 
 pinNumber = sys.argv[1]
 status = sys.argv[2]
