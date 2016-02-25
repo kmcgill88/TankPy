@@ -49,7 +49,7 @@ class Lights(object):
         try:
             Lights.set_light_status_by_num(num, on_off)
             GPIO.output(int(num), low_or_high)
-            print on_off
+            print "%s: %s %s" % (datetime.now(tz=tz.gettz('America/Chicago')), light_dict[num], on_off)
             if on_off == "OFF":
                 GPIO.cleanup()
         except Exception as e:
